@@ -76,6 +76,9 @@ function draw() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    ctx.fillStyle = "red";
+ctx.fillRect(50, 50, 100, 100);
+
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
