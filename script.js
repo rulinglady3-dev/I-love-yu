@@ -113,6 +113,13 @@ function update() {
 
     }
 
+} 
+for (const p of POINTS) {
+
+    if (!p.visible) continue;
+
+    p.alpha += (p.targetAlpha - p.alpha) * 0.08;
+
 }
     
     // Kalbin %70'i oluşunca "yu" görünsün
