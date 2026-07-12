@@ -14,7 +14,7 @@ resize();
 // Ayarlar
 const TEXT = "I love you";
 const POINTS = [];
-const TOTAL = 1500;
+const TOTAL = 500;
 
 
 // Kalp denklemi
