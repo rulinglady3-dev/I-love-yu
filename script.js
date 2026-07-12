@@ -70,6 +70,8 @@ function createHeart() {
 createHeart();
 // Çizim
 
+let time = 0;
+
 function draw() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -77,23 +79,46 @@ function draw() {
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
 
-    for (const p of POINTS) {
+    function draw() {
 
-        // Yavaş yavaş görünmesi
-        p.alpha += (p.target - p.alpha) * 0.03;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-        ctx.globalAlpha = p.alpha;
+    ctx.textAlign="center";
+    ctx.textBaseline="middle";
 
-        ctx.fillStyle = "#ff4d6d";
+    time += 0.03;
 
-        ctx.font = `${p.size}px Arial`;
+    const pulse = 1 + Math.sin(time) * 0.04;
 
-        ctx.fillText(
-            TEXT,
-            p.x,
-            p.y
-        );
+    time += 0.03;
 
+const pulse = 1 + Math.sin(time) * 0.04;
+
+for (const p of POINTS) {
+
+    p.alpha += (p.target - p.alpha) * 0.03;
+
+    const x = canvas.width / 2 + (p.x - canvas.width / 2) * pulse;
+    const y = canvas.height / 2 + (p.y - canvas.height / 2) * pulse;
+
+    const glow = 0.6 + Math.sin(time * 2 + p.twinkle) * 0.4;
+
+    ctx.globalAlpha = p.alpha * glow;
+
+    ctx.fillStyle = "#ff4d6d";
+
+    ctx.font = `${p.size}px Arial`;
+
+    ctx.fillText(TEXT, x, y);
+}
+        ...
+    }
+
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(draw);
+
+}
     }
 
     ctx.globalAlpha = 1;
